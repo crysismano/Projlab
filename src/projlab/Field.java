@@ -37,11 +37,11 @@ public class Field {
 	 * @param p The player to be added
 	 */
 	public void AddCharacter(Character c) {
-		c.SetField(this);
-		characters.add(c);
 		if(deadly) {
 			Controller.GameOver();
 		}
+		c.SetField(this);
+		characters.add(c);
 	}
 	
 	/**

@@ -19,7 +19,6 @@ public class PolarBear extends Character {
 		f1.SetDeadly();
 		
 		f2.AddCharacter(this);
-		f2.SetDeadly();
 		
 		ArrayList<Character> characters = f2.GetCharacters();
 		
@@ -34,6 +33,10 @@ public class PolarBear extends Character {
 			else
 				Controller.GameOver();
 		}
+	}
+	public void SetField(Field f) {
+		 super.SetField(f);
+		 f.SetDeadly();
 	}
 	/**
 	 * Nothing happens when it falls in water
