@@ -34,7 +34,7 @@ public class Field {
 	
 	/**
 	 * Adds p player to the list of players
-	 * @param p The player to be added
+	 * @param c The player to be added
 	 */
 	public void AddCharacter(Character c) {
 		c.SetField(this);
@@ -58,7 +58,7 @@ public class Field {
 	
 	/**
 	 * Removes the given player from the list of players
-	 * @param p The player to be removed
+	 * @param c The player to be removed
 	 */
 	public void RemoveCharacter(Character c) {
 		characters.remove(c);
@@ -70,6 +70,7 @@ public class Field {
 	 */
 	public void AddSnow(int s) {
 		snow += s;
+		if (snow < 0) snow = 0;
 		if(igloo != null) {
 			boolean destroy  = igloo.Destroy(s);
 			if(destroy) {
