@@ -1,0 +1,7 @@
+load tests/teszt-29-inp.txt
+
+playeruse E ability
+
+data E
+
+data u_12

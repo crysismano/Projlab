@@ -1,0 +1,13 @@
+load tests/teszt-29-inp.txt
+
+step E 2
+step E 3
+step K2 3
+
+data u_13
+
+data K1
+
+data K2
+
+data E

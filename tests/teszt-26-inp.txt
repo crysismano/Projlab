@@ -1,0 +1,5 @@
+createmap 1
+setfield f_1 hole
+character E e h_1
+
+data E

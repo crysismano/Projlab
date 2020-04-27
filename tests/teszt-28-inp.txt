@@ -1,0 +1,16 @@
+createmap 2
+
+setfield f_2 unstable 1
+setneig f_1 u_2 1 1
+character E1 e f_1
+character E2 e u_2
+setsnow 2 u_2
+step E1 1
+playeruse E1 ability
+step E2 1
+
+data E1
+
+data E2
+
+data u_2
