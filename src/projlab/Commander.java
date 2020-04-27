@@ -52,6 +52,8 @@ public class Commander {
 			else {
 				c.Init();
 				objects = new Hashtable<String, Object>();
+				positions = new Hashtable<String,String>();
+				neighbours = new ArrayList<String>();
 				for(int i=0;i<Integer.parseInt(params[1]);i++) {
 					Field f = new Field();
 					objects.put("f_" + (i+1), f);
