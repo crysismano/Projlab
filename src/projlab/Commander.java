@@ -244,21 +244,6 @@ public class Commander {
 						positions.put(params[1], key);
 					}
 				}
-				/*for(String s : neighbours) {
-					String[] tmp = s.split(" ");
-					if(tmp[0].equalsIgnoreCase(positions.get(params[1]))) {
-						if(params[2].equalsIgnoreCase(tmp[2])) {
-							positions.put(params[1], tmp[1]);
-							break;
-						}
-					}
-					else if (tmp[1].equalsIgnoreCase(positions.get(params[1]))) {
-						if(params[2].equalsIgnoreCase(tmp[3])) {
-							positions.put(params[1], tmp[0]);
-							break;
-						}
-					}
-				}*/
 			}
 			else System.out.println("there's no field with this ID: " + params[2]);
 		}
@@ -326,7 +311,7 @@ public class Commander {
 								"\n\tplayers:" + player +
 								"\n\tsnow:" + snow);
 				if(params[1].contains("f_") || params[1].contains("u_")) {
-					System.out.println("\tigloo: " + (f.GetIgloo()!=null? 1 : 0) +
+					System.out.println("\tigloo: " + (f.GetIgloo()!=null && !f.GetIgloo().Invadable()? 1 : 0) +
 										"\n\ttent: " + (f.GetIgloo()!=null && f.GetIgloo().Invadable()? 1 : 0));
 				}
 				if(params[1].contains("u_")) {
