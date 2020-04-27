@@ -30,7 +30,7 @@ public class Part extends Item {
 		
 		ArrayList<Player> allPlayers = Controller.GetPlayers();
 			
-		if(playersOnField.equals(allPlayers)) {
+		if(playersOnField.containsAll(allPlayers)) {
 			ArrayList<Item> allItems = new ArrayList<Item>();
 			for(Player pi : allPlayers) {
 				allItems.addAll(pi.GetItems());

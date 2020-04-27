@@ -26,7 +26,7 @@ public class Controller {
 	/**
 	 * The polarbear
 	 */
-	private static PolarBear polarbear = new PolarBear(); 
+	private static PolarBear polarbear; 
 	/**
 	 * It initializes the game
 	 * Not used in the skeleton
@@ -62,7 +62,7 @@ public class Controller {
 	 * Not used in skeleton
 	 */
 	public static void Win() {
-		
+		System.out.println("Winner!");
 	}
 	
 	/**
@@ -71,12 +71,23 @@ public class Controller {
 	public static void NextRound() {
 		Random rng = new Random();
 		int random = rng.nextInt(100);
-		if(random < 24) {
+		if(random < 75) {
 			SnowStorm();
 		}
 		for(Player p : players ) {
 			p.AddWork(4);
 			p.SetDrowning(2);
+		}
+		for(Field f : fields) {
+			for(Tent t: tents) {
+				if(f.GetIgloo() == t) {
+					f.RemoveIgloo();
+				}
+			}
+		}
+		tents.clear();
+		if(polarbear != null) {
+			polarbear.Step(rng.nextInt(polarbear.GetField().GetNeighboursSize()) + 1);
 		}
 	}
 	
@@ -127,5 +138,19 @@ public class Controller {
 		for(Field f: fields) {
 			f.AddSnow(3);
 		}
+	}
+	/**
+	 * Adds a tent to the tents list
+	 * @param t the new tent
+	 */
+	public static void AddTent(Tent t) {
+		tents.add(t);
+	}
+	/**
+	 * Sets the polarbear to p
+	 * @param p the polarbear
+	 */
+	public void SetPolarBear(PolarBear p) {
+		polarbear = p;
 	}
 }

@@ -26,8 +26,9 @@ public class Explorer extends Player{
 		if(GetWork() > 0) {
 			Field f = this.GetField();
 			Field neighbour = f.GetNeighbour(dir);
-			lastExploredFieldCapacity = neighbour.GetMaxCharacter(); //Ezzel kéne csinálni valamit
+			lastExploredFieldCapacity = neighbour.GetMaxCharacter();
 			this.AddWork(-1);
+			System.out.println("Maxplayer: " + lastExploredFieldCapacity); //PROTO ONLY
 		}
 	}
 	/**

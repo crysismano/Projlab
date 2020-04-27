@@ -74,7 +74,6 @@ public class Commander {
 					Eskimo e = new Eskimo();
 					Field f = (Field)objects.get(params[3]);
 					f.AddCharacter(e);
-					e.SetField(f);
 					c.AddPlayer(e);
 					objects.put(params[1], e);
 					positions.put(params[1], params[3]);
@@ -84,7 +83,6 @@ public class Commander {
 					Explorer ex = new Explorer();
 					Field f = (Field)objects.get(params[3]);
 					f.AddCharacter(ex);
-					ex.SetField(f);
 					c.AddPlayer(ex);
 					objects.put(params[1], ex);
 					positions.put(params[1], params[3]);
@@ -94,7 +92,6 @@ public class Commander {
 					PolarBear p = new PolarBear();
 					Field f = (Field)objects.get(params[3]);
 					f.AddCharacter(p);
-					p.SetField(f);
 					objects.put("@" + params[1], p);
 					positions.put("@" + params[1], params[3]);
 					System.out.println("Your Polarbear has been named: @" + params[1] );
@@ -310,10 +307,9 @@ public class Commander {
 				System.out.println("\n\tneighbours:" + fields +
 								"\n\tplayers:" + player +
 								"\n\tsnow:" + snow);
-				if(params[1].contains("f_") || params[1].contains("u_")) {
-					System.out.println("\tigloo: " + (f.GetIgloo()!=null && !f.GetIgloo().Invadable()? 1 : 0) +
-										"\n\ttent: " + (f.GetIgloo()!=null && f.GetIgloo().Invadable()? 1 : 0));
-				}
+				System.out.println("\tigloo: " + (f.GetIgloo()!=null && !f.GetIgloo().Invadable()? 1 : 0) +
+									"\n\ttent: " + (f.GetIgloo()!=null && f.GetIgloo().Invadable()? 1 : 0));
+				
 				if(params[1].contains("u_")) {
 					System.out.println("\tmaxPlayers: " + f.GetMaxCharacter());
 				}

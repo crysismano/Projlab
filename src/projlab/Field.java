@@ -70,6 +70,7 @@ public class Field {
 	 */
 	public void AddSnow(int s) {
 		snow += s;
+		if(snow < 0) {snow = 0;}
 		if(igloo != null) {
 			boolean destroy  = igloo.Destroy(s);
 			if(destroy) {
