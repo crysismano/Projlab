@@ -237,7 +237,14 @@ public class Commander {
 			if(objects.containsKey(params[1])) {
 				Character ch = (Character)objects.get(params[1]);
 				ch.Step(Integer.parseInt(params[2]));
-				for(String s : neighbours) {
+				Field f = ch.GetField();
+				Set<String> keys = objects.keySet();
+				for(String key: keys) {
+					if(objects.get(key).equals(f)) {
+						positions.put(params[1], key);
+					}
+				}
+				/*for(String s : neighbours) {
 					String[] tmp = s.split(" ");
 					if(tmp[0].equalsIgnoreCase(positions.get(params[1]))) {
 						if(params[2].equalsIgnoreCase(tmp[2])) {
@@ -251,7 +258,7 @@ public class Commander {
 							break;
 						}
 					}
-				}
+				}*/
 			}
 			else System.out.println("there's no field with this ID: " + params[2]);
 		}
