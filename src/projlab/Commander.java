@@ -292,7 +292,7 @@ public class Commander {
 	
 	private void data(String[] params) {
 		if(params.length<2) System.out.println("wrong parameters!");
-		else {
+		else if(objects.containsKey(params[1])){
 			if (params[1].contains("_")) {	
 				Field f = (Field)objects.get(params[1]);
 				String fields = "";
@@ -355,6 +355,7 @@ public class Commander {
 				System.out.println("\titems:" + item);
 			}
 		}
+		else System.out.println("there's no player with this ID: " + params[1]);
 	}
 	
 	private void load(String[] params) {
