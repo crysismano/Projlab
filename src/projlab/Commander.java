@@ -54,6 +54,7 @@ public class Commander {
 				objects = new Hashtable<String, Object>();
 				positions = new Hashtable<String,String>();
 				neighbours = new ArrayList<String>();
+				itemNum = 0;
 				for(int i=0;i<Integer.parseInt(params[1]);i++) {
 					Field f = new Field();
 					objects.put("f_" + (i+1), f);
