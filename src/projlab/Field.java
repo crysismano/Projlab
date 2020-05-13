@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Implements the base unit of the game space
  */
-public class Field {
+public class Field extends Observable{
 	/**
 	 * The layers of snow on the field
 	 */
@@ -62,6 +62,7 @@ public class Field {
 	 */
 	public void RemoveCharacter(Character c) {
 		characters.remove(c);
+		
 	}
 	
 	/**
@@ -82,6 +83,7 @@ public class Field {
 				c.SnowFall();
 			}
 		}
+		UpdateObserver();
 	}
 	
 	/**
@@ -99,6 +101,7 @@ public class Field {
 	 */
 	public void BuildIgloo(Igloo i) {
 		this.igloo = i;
+		UpdateObserver();
 	}
 	
 	/**
@@ -106,6 +109,7 @@ public class Field {
 	 */
 	public void RemoveIgloo() {
 		this.igloo = null;
+		UpdateObserver();
 	}
 	
 	/**
@@ -133,6 +137,7 @@ public class Field {
 	 */
 	public void RemoveItem() {
 		this.item = null;
+		UpdateObserver();
 	}
 	
 	/**
@@ -148,6 +153,7 @@ public class Field {
 	 */
 	public void SetItem(Item i) {
 		item = i;
+		UpdateObserver();
 	}
 	
 	/**
