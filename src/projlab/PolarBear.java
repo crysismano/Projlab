@@ -15,11 +15,14 @@ public class PolarBear extends Character {
 		Field f1 = this.GetField();
 		Field f2 = f1.GetNeighbour(dir);
 		
+		if(f2 == null) {
+			return;
+		}
+		
 		f1.RemoveCharacter(this);
 		f1.SetDeadly();
 		
 		f2.AddCharacter(this);
-		f2.SetDeadly();
 		
 		ArrayList<Character> characters = f2.GetCharacters();
 		
@@ -27,13 +30,17 @@ public class PolarBear extends Character {
 			Igloo i;
 			i = f2.GetIgloo();
 			if(i != null) {
-				boolean invadable = i.Invadable();
-				if(invadable)
+				if(i.Invadable())
 					Controller.GameOver();
 			}
 			else
 				Controller.GameOver();
 		}
+		UpdateObserver();
+	}
+	public void SetField(Field f) {
+		 super.SetField(f);
+		 f.SetDeadly();
 	}
 	/**
 	 * Nothing happens when it falls in water

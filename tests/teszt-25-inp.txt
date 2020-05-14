@@ -1,0 +1,8 @@
+createmap 2 field 2
+
+setneig f_1 f_2 1 1
+character P p f_2
+character E e f_1
+step E 1
+
+data f_2

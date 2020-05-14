@@ -3,7 +3,7 @@ package projlab;
 /**
  * Represent the igloo's behavior
  */
-public class Igloo {
+public class Igloo extends Observable {
 	
 	/**
 	 * the igloo's current health

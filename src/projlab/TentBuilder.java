@@ -11,6 +11,10 @@ public class TentBuilder extends Item{
 		Player p = this.GetPlayer();
 		Field f = p.GetField();
 		Tent t = new Tent();
-		f.BuildIgloo(t);
+		if(f.GetIgloo() == null) {
+			f.BuildIgloo(t);
+			Controller.AddTent(t);
+			p.DeleteItem(this);
+		}
 	}
 }

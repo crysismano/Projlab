@@ -7,6 +7,7 @@ playeruse E pick
 playeruse E ability
 playeruse E item 0
 step E 1
+endround E
 playeruse E item 0
 
 data f_1

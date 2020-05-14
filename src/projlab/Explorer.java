@@ -8,7 +8,7 @@ public class Explorer extends Player{
 	/**
 	 * The last explored field's capacity
 	 */
-	int lastExploredFieldCapacity = 0;
+	int lastExploredFieldCapacity = -2;
 	/**
 	 * ctor
 	 */
@@ -26,8 +26,9 @@ public class Explorer extends Player{
 		if(GetWork() > 0) {
 			Field f = this.GetField();
 			Field neighbour = f.GetNeighbour(dir);
-			lastExploredFieldCapacity = neighbour.GetMaxCharacter(); //Ezzel kéne csinálni valamit
+			lastExploredFieldCapacity = neighbour.GetMaxCharacter();
 			this.AddWork(-1);
+			UpdateObserver();
 		}
 	}
 	/**

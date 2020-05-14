@@ -24,6 +24,7 @@ public class Unstable extends Field {
 			igloo = null;
 			snow = 0;
 		}
+		UpdateObserver();
 	}
 
 	/**

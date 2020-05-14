@@ -5,6 +5,6 @@ character P1 p f_1
 character E1 e f_2
 character E2 e f_3
 
-playeruse E1 ablility
-step P1 1
-step P1 1
+playeruse E1 ability
+step @P1 1
+step @P1 1

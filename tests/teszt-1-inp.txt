@@ -1,3 +1,6 @@
 createmap 1
 character E1 e f_1
 data E1
+
+step E1 1
+data E1
