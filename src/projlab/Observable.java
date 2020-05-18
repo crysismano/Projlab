@@ -1,6 +1,5 @@
 package projlab;
 
-import jdk.jshell.spi.ExecutionControl;
 
 public abstract class Observable {
 	private Observer observer;

@@ -7,6 +7,12 @@ import java.awt.event.MouseEvent;
 public abstract class ClickableComponent extends JComponent {
 	protected MouseAdapter mouseListener;
 
+	protected InfoFrame infoFrame;
+	
+	public void SetInfoFrame(InfoFrame f) {
+		infoFrame = f;
+	}
+
 	public ClickableComponent(){
 		mouseListener = new ComponentMouseListener(this);
 	}

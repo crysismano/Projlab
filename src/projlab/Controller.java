@@ -34,6 +34,29 @@ public class Controller {
 	public static void Init(){
 		fields = new ArrayList<Field>();
 		players = new ArrayList<Player>();
+		for(int i = 0; i < 36; i++) {
+			if(i == 2 || i == 3 || i == 14 || i == 18)
+				fields.add(new Hole());
+			else
+			if(i == 5 || i == 7 || i == 21 || i == 30 || i == 35)
+				fields.add(new Unstable());
+			else
+				fields.add(new Field());
+		}
+		for(int i = 0; i < 36; i++) {
+			if(i-6 >=0 && i-6 <= 35) {
+				fields.get(i).SetNeighbour(1, fields.get(i-6));
+			}
+			if(i + 1 >=0 && i + 1 <=35) {
+				fields.get(i).SetNeighbour(2, fields.get(i+1));
+			}
+			if(i+6 >= 0 && i+6 <= 35) {
+				fields.get(i).SetNeighbour(3, fields.get(i+6));
+			}
+			if(i-1 >= 0 && i-1 <=35) {
+				fields.get(i).SetNeighbour(4, fields.get(i-1));
+			}
+		}
 	}
 	
 	/**
