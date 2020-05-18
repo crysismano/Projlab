@@ -1,7 +1,7 @@
-stepre léphet munkapont hiányában is
-snow ne legyen negatív (pl: ásás után)
+8: stepre léphet munkapont hiányában is
+DONE: snow ne legyen negatív (pl: ásás után)
 17: a karaktereknél nem regisztrálja át a fieldet a rope(?, valami)
-18: igloo és tent ne legyen egymás mellett
+DONE: 18: igloo és tent ne legyen egymás mellett | nincs, helyes működés
 19: honnan lehet tudni, hogy win, lépés(?)
 21: maxplayert nem ír ki
 24: can't step PolarBear

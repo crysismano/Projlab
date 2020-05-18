@@ -1,5 +1,7 @@
 package projlab;
 
+import jdk.jshell.spi.ExecutionControl;
+
 public abstract class Observable {
 	private Observer observer;
 	
@@ -14,4 +16,5 @@ public abstract class Observable {
 	public void Deregister() {
 		observer = null;
 	}
+
 }

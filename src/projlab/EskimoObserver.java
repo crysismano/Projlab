@@ -1,5 +1,7 @@
 package projlab;
 
+import javax.swing.*;
+
 public class EskimoObserver implements Observer{
 
 	@Override
