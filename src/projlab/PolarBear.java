@@ -36,8 +36,8 @@ public class PolarBear extends Character {
 			else
 				Controller.GameOver();
 		}
-		UpdateObserver();
 	}
+	
 	public void SetField(Field f) {
 		 super.SetField(f);
 		 f.SetDeadly();

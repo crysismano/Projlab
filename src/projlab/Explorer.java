@@ -28,7 +28,6 @@ public class Explorer extends Player{
 			Field neighbour = f.GetNeighbour(dir);
 			lastExploredFieldCapacity = neighbour.GetMaxCharacter();
 			this.AddWork(-1);
-			UpdateObserver();
 		}
 	}
 	/**

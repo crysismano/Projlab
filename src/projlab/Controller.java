@@ -1,6 +1,7 @@
 package projlab;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -14,19 +15,21 @@ public class Controller {
 	/**
 	 * All the fields in the game space
 	 */
-	private static ArrayList<Field> fields = new ArrayList<Field>();
+	public static ArrayList<Field> fields = new ArrayList<Field>();
 	/**
 	 * All of the players
 	 */
-	private static ArrayList<Player> players = new ArrayList<Player>();
+	public static ArrayList<Player> players = new ArrayList<Player>();
 	/**
 	 * List of tents
 	 */
-	private static ArrayList<Tent> tents = new ArrayList<Tent>();
+	public static ArrayList<Tent> tents = new ArrayList<Tent>();
 	/**
 	 * The polarbear
 	 */
-	private static PolarBear polarbear; 
+	public static PolarBear polarbear = new PolarBear(); 
+	
+	public static HashMap<Player,String> names = new HashMap<Player, String>();
 	/**
 	 * It initializes the game
 	 * Not used in the skeleton
@@ -47,15 +50,63 @@ public class Controller {
 			if(i-6 >=0 && i-6 <= 35) {
 				fields.get(i).SetNeighbour(1, fields.get(i-6));
 			}
-			if(i + 1 >=0 && i + 1 <=35) {
+			if(i + 1 >=0 && i + 1 <=35 && i%6 != 5) {
 				fields.get(i).SetNeighbour(2, fields.get(i+1));
 			}
 			if(i+6 >= 0 && i+6 <= 35) {
 				fields.get(i).SetNeighbour(3, fields.get(i+6));
 			}
-			if(i-1 >= 0 && i-1 <=35) {
+			if(i-1 >= 0 && i-1 <=35 && i%6 != 0) {
 				fields.get(i).SetNeighbour(4, fields.get(i-1));
 			}
+		}
+		InfoFrame infoFrame = new InfoFrame();
+		MapWindow mw = new MapWindow(infoFrame);
+		for(int i = 0; i < 36; i++) {
+			fields.get(i).Register(mw.GetClickableComponent(i));
+			mw.GetClickableComponent(i).Update(fields.get(i));
+		}
+		Random rng = new Random();
+		for(int i = 0; i < fields.size(); i++) {
+			fields.get(i).AddSnow(rng.nextInt(3)+1);
+		}
+			
+		Eskimo e1 = new Eskimo();
+		Eskimo e2 = new Eskimo();
+		Explorer ex1 = new Explorer();
+		Explorer ex2 = new Explorer();
+		
+		players.add(e1);
+		players.add(e2);
+		players.add(ex1);
+		players.add(ex2);
+		
+		names.put(e1, "Eskimo András");
+		names.put(e2, "Eskimo Béla");
+		names.put(ex1, "Explorer Cecilia");
+		names.put(ex2, "Explorer Dora");
+		
+		for(int i = 0; i < players.size(); i++) {
+			fields.get(0).AddCharacter(players.get(i));;
+		}
+		
+		fields.get(35).AddCharacter(polarbear);
+		
+		for(int i = 0; i < 36; i++) {
+			if(i == 4 ||i == 26 || i == 35) 
+				fields.get(i).SetItem(new Part());
+			else if(i == 7)
+				fields.get(i).SetItem(new FragileShovel());
+			else if(i == 8)
+				fields.get(i).SetItem(new Suit());
+			else if(i == 9)
+				fields.get(i).SetItem(new TentBuilder());
+			else if(i == 12)
+				fields.get(i).SetItem(new Shovel());
+			else if(i == 15)
+				fields.get(i).SetItem(new Rope());
+			else if(i == 23 || i == 25)
+				fields.get(i).SetItem(new Food());
 		}
 	}
 	
@@ -110,7 +161,14 @@ public class Controller {
 		}
 		tents.clear();
 		if(polarbear != null) {
-			polarbear.Step(rng.nextInt(polarbear.GetField().GetNeighboursSize()) + 1);
+			boolean valid = false;
+			int index = 0;
+			while(!valid) {
+				index = rng.nextInt(4)+1;
+				if(polarbear.GetField().GetNeighbour(index)!=null)
+					valid = true;
+			}
+			polarbear.Step(index);
 		}
 	}
 	
@@ -175,5 +233,9 @@ public class Controller {
 	 */
 	public void SetPolarBear(PolarBear p) {
 		polarbear = p;
+	}
+	
+	public void SetObserversForFields(ClickableComponent cc, int idx) {
+		
 	}
 }

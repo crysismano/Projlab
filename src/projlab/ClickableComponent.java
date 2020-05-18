@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public abstract class ClickableComponent extends JComponent {
+public abstract class ClickableComponent extends JComponent implements Observer {
 	protected MouseAdapter mouseListener;
 
 	protected InfoFrame infoFrame;
@@ -15,7 +15,9 @@ public abstract class ClickableComponent extends JComponent {
 
 	public ClickableComponent(){
 		mouseListener = new ComponentMouseListener(this);
+		this.addMouseListener(mouseListener);
 	}
+	
 
 	public abstract void clicked();
 
@@ -27,17 +29,19 @@ public abstract class ClickableComponent extends JComponent {
 		public ComponentMouseListener(ClickableComponent owner){
 			this.owner = owner;
 		}
-
+		@Override
 		public void mouseEntered(MouseEvent e){
 			in_component = true;
 		}
-
+		@Override
 		public void mouseExited(MouseEvent e){
 			in_component = false;
 		}
-
-		public void mouseClicked(MouseEvent e){
-			owner.clicked();
+		@Override
+		public void mousePressed(MouseEvent e){
+			if(in_component) {
+				owner.clicked();
+			}
 		}
 	}
 }

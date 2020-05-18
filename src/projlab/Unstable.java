@@ -5,7 +5,7 @@ package projlab;
  * Implements Unstable fields
  */
 public class Unstable extends Field {
-	private int maxCharacter;
+	private int maxCharacter = 3;
 	private boolean flipped = false;
 
 	/**
@@ -34,7 +34,7 @@ public class Unstable extends Field {
 	 * @param c The character to be added
 	 */
 	public void AddCharacter(Character c) {
-		super.AddCharacter(c); // should include the method call print
+		super.AddCharacter(c); 
 		
 		if (flipped){
 			c.FellInWater();
@@ -42,6 +42,7 @@ public class Unstable extends Field {
 		else if (GetCharacters().size() > maxCharacter) {
 			Flip();
 		}
+		UpdateObserver();
 	}
 
 	/**
@@ -56,6 +57,7 @@ public class Unstable extends Field {
 		if (GetCharacters().size() == 0 && flipped) {
 			Flip();
 		}
+		UpdateObserver();
 	}
 
 	/**
@@ -72,6 +74,10 @@ public class Unstable extends Field {
 	 */
 	public void SetMaxCharacter(int characters) {
 		maxCharacter = characters;
+	}
+	
+	public boolean IsFlipped() {
+		return flipped;
 	}
 	
 }

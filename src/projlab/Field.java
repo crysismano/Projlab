@@ -42,6 +42,7 @@ public class Field extends Observable{
 		}
 		c.SetField(this);
 		characters.add(c);
+		UpdateObserver();
 	}
 	
 	/**
@@ -62,7 +63,7 @@ public class Field extends Observable{
 	 */
 	public void RemoveCharacter(Character c) {
 		characters.remove(c);
-		
+		UpdateObserver();
 	}
 	
 	/**
@@ -182,5 +183,9 @@ public class Field extends Observable{
 	 */
 	public int GetNeighboursSize() {
 		return neighbours.size();
+	}
+	
+	public int GetSnow() {
+		return snow;
 	}
 }

@@ -3,7 +3,7 @@ package projlab;
  * Abstract class defines the common behavior of a Character
  * 
  */
-public abstract class Character extends Observable {
+public abstract class Character {
 	/**
 	 * Store the position of the character
 	 */
@@ -19,7 +19,6 @@ public abstract class Character extends Observable {
 	 */
 	public void SetField(Field f) {
 		field = f;
-		UpdateObserver();
 	}
 	/**
 	 * Returns with the field

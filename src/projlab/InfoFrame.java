@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 
 public class InfoFrame extends JFrame{
 	
+	private Player selectedPlayer;
+	
 	public InfoFrame(){
 		super("infoPanel");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);

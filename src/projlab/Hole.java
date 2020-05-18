@@ -12,6 +12,7 @@ public class Hole extends Field{
 	public void AddCharacter(Character c) {
 		super.AddCharacter(c);
 		c.FellInWater();
+		UpdateObserver();
 	}
 	
 	/**
@@ -20,6 +21,7 @@ public class Hole extends Field{
 	 */
 	public void RemoveCharacter(Character c) {
 		this.GetCharacters().remove(c);
+		UpdateObserver();
 	}
 	
 	/**

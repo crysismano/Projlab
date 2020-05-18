@@ -10,9 +10,8 @@ public class MapWindow extends JFrame {
 	
 	JPanel p1;
 	ArrayList<ClickableComponent> map = new ArrayList<ClickableComponent>();
-	InfoFrame infoFrame = new InfoFrame();
 	
-	public MapWindow() {
+	public MapWindow(InfoFrame infoFrame) {
 
 		super("Map");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -48,5 +47,9 @@ public class MapWindow extends JFrame {
 		this.add(p1);
 		this.setVisible(true);
 		this.setResizable(false);
+	}
+	
+	public ClickableComponent GetClickableComponent(int idx) {
+		return map.get(idx);
 	}
 }

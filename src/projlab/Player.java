@@ -46,7 +46,6 @@ public abstract class Player extends Character{
 				this.AddWork(-1);
 			}
 		}
-		UpdateObserver();
 	}
 	
 	/**
@@ -165,7 +164,6 @@ public abstract class Player extends Character{
 		break;
 		default: break;
 		}
-		UpdateObserver();
 	}
 	
 	/**
