@@ -80,8 +80,11 @@ public class Field extends Observable{
 			}
 		}
 		if(igloo == null && s > 0){
-			for(Character c : characters) {
-				c.SnowFall();
+			for(int i = 0; i < characters.size(); i++) {
+				try {
+				characters.get(i).SnowFall();
+				}
+				catch(Exception e) {}
 			}
 		}
 		UpdateObserver();

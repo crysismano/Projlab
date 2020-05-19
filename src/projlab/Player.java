@@ -95,6 +95,9 @@ public abstract class Player extends Character{
 			if(work < 0) {
 				work = 0;
 			}
+			if(work > 4) {
+				work = 4;
+			}
 		}
 	}
 	

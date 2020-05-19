@@ -179,22 +179,6 @@ public class Controller {
 	 */
 	public static void NextRound() {
 		Random rng = new Random();
-		int random = rng.nextInt(100);
-		if(random < 75) {
-			SnowStorm();
-		}
-		for(Player p : players ) {
-			p.AddWork(4);
-			p.SetDrowning(2);
-		}
-		for(Field f : fields) {
-			for(Tent t: tents) {
-				if(f.GetIgloo() == t) {
-					f.RemoveIgloo();
-				}
-			}
-		}
-		tents.clear();
 		if(polarbear != null) {
 			boolean valid = false;
 			int index = 0;
@@ -204,6 +188,22 @@ public class Controller {
 					valid = true;
 			}
 			polarbear.Step(index);
+		}
+		int random = rng.nextInt(100);
+		if(random < 75) {
+			SnowStorm();
+		}
+		for(Field f : fields) {
+			for(Tent t: tents) {
+				if(f.GetIgloo() == t) {
+					f.RemoveIgloo();
+				}
+			}
+		}
+		tents.clear();
+		for(Player p : players ) {
+			p.AddWork(4);
+			p.SetDrowning(2);
 		}
 	}
 	
@@ -277,6 +277,10 @@ public class Controller {
 			f.AddSnow(-1000);
 			f.AddSnow(rng.nextInt(3)+1);
 		}
+		for(Player p: players) {
+			p.RemoveAllItems();
+			p.ResetStats();
+		}
 		for(int i = 0; i < players.size(); i++) {
 			fields.get(0).AddCharacter(players.get(i));;
 		}
@@ -303,9 +307,6 @@ public class Controller {
 			else if(i == 23 || i == 25)
 				fields.get(i).SetItem(new Food());
 		}
-		for(Player p: players) {
-			p.RemoveAllItems();
-			p.ResetStats();
-		}
+		
 	}
 }
