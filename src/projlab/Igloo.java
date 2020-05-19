@@ -17,7 +17,8 @@ public class Igloo extends Observable {
 	 * @return true if the igloo is completely destroyed, false if it's not
 	 */
 	public boolean Destroy(int s) {
-		health -= s;
+		if(s > 0)
+			health -= s;
 		return (health <= 0);
 	}
 	/**

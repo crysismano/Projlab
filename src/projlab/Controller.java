@@ -275,6 +275,7 @@ public class Controller {
 		for(Field f: fields) {
 			f.RemoveAllCharacters();
 			f.AddSnow(-1000);
+			f.RemoveIgloo();
 			f.AddSnow(rng.nextInt(3)+1);
 		}
 		for(Player p: players) {

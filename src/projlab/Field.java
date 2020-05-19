@@ -39,6 +39,7 @@ public class Field extends Observable{
 	public void AddCharacter(Character c) {
 		if(deadly) {
 			Controller.GameOver();
+			return;
 		}
 		c.SetField(this);
 		characters.add(c);

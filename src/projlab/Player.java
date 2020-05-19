@@ -42,8 +42,8 @@ public abstract class Player extends Character{
 			Field f2 = GetField().GetNeighbour(dir);
 			if(f2 != null) {
 				GetField().RemoveCharacter(this);
-				f2.AddCharacter(this);
 				this.AddWork(-1);
+				f2.AddCharacter(this);
 			}
 		}
 	}
