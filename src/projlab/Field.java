@@ -193,8 +193,10 @@ public class Field extends Observable{
 		return snow;
 	}
 	
-	public void RemoveAllCharacters() {
+	public void ResetField() {
+		snow = 0;
 		characters.clear();
 		deadly = false;
+		igloo = null;
 	}
 }

@@ -80,4 +80,10 @@ public class Unstable extends Field {
 		return flipped;
 	}
 	
+	@Override
+	public void ResetField() {
+		super.ResetField();
+		flipped = false;
+	}
+	
 }

@@ -253,9 +253,7 @@ public class Controller {
 	public static void ResetGame() {
 		Random rng = new Random();
 		for(Field f: fields) {
-			f.RemoveAllCharacters();
-			f.AddSnow(-1000);
-			f.RemoveIgloo();
+			f.ResetField();
 			f.AddSnow(rng.nextInt(3)+1);
 		}
 		for(Player p: players) {
