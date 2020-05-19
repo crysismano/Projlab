@@ -13,4 +13,7 @@ public class Food extends Item{
 		p.AddTemp(1);
 		p.DeleteItem(this);
 	}
+	public String toString() {
+		return "Food";
+	}
 }

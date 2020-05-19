@@ -21,4 +21,8 @@ public class FragileShovel extends Item{
 			p.DeleteItem(this);
 		}
 	}
+	
+	public String toString() {
+		return "Fragile Shovel";
+	}
 }

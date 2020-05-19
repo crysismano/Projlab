@@ -15,4 +15,8 @@ public class Shovel extends Item {
 		Field f = p.GetField();
 		f.AddSnow(-2);
 	}
+	
+	public String toString() {
+		return "Shovel";
+	}
 }

@@ -17,4 +17,8 @@ public class TentBuilder extends Item{
 			p.DeleteItem(this);
 		}
 	}
+	
+	public String toString() {
+		return "Tent Builder";
+	}
 }

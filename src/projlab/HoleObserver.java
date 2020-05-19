@@ -80,6 +80,6 @@ public class HoleObserver extends ClickableComponent {
 	@Override
 	public void clicked() {
 		System.out.println("Hole vagyok, klikkeltél rajtam");
-		System.out.println(observed.GetSnow());
+		infoFrame.setSelectedField(observed);
 	}
 }

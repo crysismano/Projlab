@@ -11,6 +11,7 @@ public abstract class ClickableComponent extends JComponent implements Observer 
 	
 	public void SetInfoFrame(InfoFrame f) {
 		infoFrame = f;
+		
 	}
 
 	public ClickableComponent(){

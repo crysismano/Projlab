@@ -27,17 +27,20 @@ public class MapWindow extends JFrame {
 				HoleObserver ho = new HoleObserver();
 				map.add(ho);
 				p1.add(ho);
+				ho.SetInfoFrame(infoFrame);
 			}
 			else
 			if(i == 5 || i == 7 || i == 21 || i == 30 || i == 35) {
 				UnstableObserver uo = new UnstableObserver();
 				map.add(uo);
 				p1.add(uo);
+				uo.SetInfoFrame(infoFrame);
 			}
 			else {
 				FieldObserver fo = new FieldObserver();
 				map.add(fo);
 				p1.add(fo);
+				fo.SetInfoFrame(infoFrame);
 			}
 			map.get(i).SetInfoFrame(infoFrame);
 		}

@@ -36,6 +36,10 @@ public class Rope extends Item {
 			}
 			
 		}
-
+		
+	}
+	
+	public String toString() {
+		return "Rope";
 	}
 }

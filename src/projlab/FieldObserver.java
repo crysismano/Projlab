@@ -13,7 +13,6 @@ import java.io.IOException;
 public class FieldObserver extends ClickableComponent {
 	
 	private Field observed;
-	
 
 	private BufferedImage fieldImage;
 	private BufferedImage snowImage;
@@ -88,9 +87,7 @@ public class FieldObserver extends ClickableComponent {
 	@Override
 	public void clicked() {
 		System.out.println("Field vagyok, klikkeltél rajtam");
-		System.out.println(observed.GetSnow());
-		Controller.NextRound();
-		System.out.println(Controller.fields.indexOf(Controller.polarbear.GetField()));
+		infoFrame.setSelectedField(observed);
 	}
 	
 	//public void Set

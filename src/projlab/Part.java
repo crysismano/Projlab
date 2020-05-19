@@ -46,4 +46,17 @@ public class Part extends Item {
 			}
 		}
 	}
+	public void SetType(int i) {
+		type = i;
+	}
+	
+	public String toString() {
+		if(type == 1)
+			return "Pistol";
+		if(type == 2)
+			return "Patron";
+		if(type == 3)
+			return "Flare";
+		return "Part";
+	}
 }

@@ -60,8 +60,11 @@ public class Controller {
 				fields.get(i).SetNeighbour(4, fields.get(i-1));
 			}
 		}
+		
 		InfoFrame infoFrame = new InfoFrame();
+		
 		MapWindow mw = new MapWindow(infoFrame);
+		
 		for(int i = 0; i < 36; i++) {
 			fields.get(i).Register(mw.GetClickableComponent(i));
 			mw.GetClickableComponent(i).Update(fields.get(i));
@@ -86,20 +89,26 @@ public class Controller {
 		names.put(ex1, "Explorer Cecilia");
 		names.put(ex2, "Explorer Dora");
 		
+		infoFrame.SetNamesMap(names);
+		
 		for(int i = 0; i < players.size(); i++) {
 			fields.get(0).AddCharacter(players.get(i));;
 		}
 		
 		fields.get(35).AddCharacter(polarbear);
-		
+		int partType = 1;
 		for(int i = 0; i < 36; i++) {
-			if(i == 4 ||i == 26 || i == 35) 
-				fields.get(i).SetItem(new Part());
+			if(i == 4 ||i == 26 || i == 35) {
+				Part part = new Part();
+				part.SetType(partType);
+				fields.get(i).SetItem(part);
+				partType++;
+			}
 			else if(i == 7)
 				fields.get(i).SetItem(new FragileShovel());
 			else if(i == 8)
 				fields.get(i).SetItem(new Suit());
-			else if(i == 9)
+			else if(i == 0 || i == 9)
 				fields.get(i).SetItem(new TentBuilder());
 			else if(i == 12)
 				fields.get(i).SetItem(new Shovel());
@@ -108,6 +117,21 @@ public class Controller {
 			else if(i == 23 || i == 25)
 				fields.get(i).SetItem(new Food());
 		}
+		Food food = new Food();
+		food.SetPlayer(players.get(0));
+		players.get(0).AddItem(food);
+		
+		
+		players.get(0).AddItem(new Shovel());
+		
+		TentBuilder tb = new TentBuilder();
+		tb.SetPlayer(players.get(2));
+		players.get(2).AddItem(tb);
+		
+		Rope rope = new Rope();
+		rope.SetPlayer(players.get(0));
+		players.get(0).AddItem(rope);
+		
 	}
 	
 	/**

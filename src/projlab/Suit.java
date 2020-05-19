@@ -14,4 +14,8 @@ public class Suit extends Item {
 		Player p = this.GetPlayer();
 		p.SetDrowning(-1);
 	}
+	
+	public String toString() {
+		return "Suit";
+	}
 }

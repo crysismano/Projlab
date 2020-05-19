@@ -5,7 +5,7 @@ package projlab;
  * Implements Unstable fields
  */
 public class Unstable extends Field {
-	private int maxCharacter = 3;
+	private int maxCharacter = 2;
 	private boolean flipped = false;
 
 	/**
