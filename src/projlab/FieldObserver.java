@@ -86,7 +86,6 @@ public class FieldObserver extends ClickableComponent {
 
 	@Override
 	public void clicked() {
-		System.out.println("Field vagyok, klikkeltél rajtam");
 		infoFrame.setSelectedField(observed);
 	}
 	

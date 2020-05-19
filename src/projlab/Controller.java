@@ -15,25 +15,25 @@ public class Controller {
 	/**
 	 * All the fields in the game space
 	 */
-	public static ArrayList<Field> fields = new ArrayList<Field>();
+	private static ArrayList<Field> fields = new ArrayList<Field>();
 	/**
 	 * All of the players
 	 */
-	public static ArrayList<Player> players = new ArrayList<Player>();
+	private static ArrayList<Player> players = new ArrayList<Player>();
 	/**
 	 * List of tents
 	 */
-	public static ArrayList<Tent> tents = new ArrayList<Tent>();
+	private static ArrayList<Tent> tents = new ArrayList<Tent>();
 	/**
 	 * The polarbear
 	 */
-	public static PolarBear polarbear = new PolarBear(); 
+	private static PolarBear polarbear = new PolarBear(); 
 	
-	public static MapWindow mw;
+	private static MapWindow mw;
 	
-	public static InfoFrame infoFrame;
+	private static InfoFrame infoFrame;
 	
-	public static HashMap<Player,String> names = new HashMap<Player, String>();
+	private static HashMap<Player,String> names = new HashMap<Player, String>();
 	/**
 	 * It initializes the game
 	 * Not used in the skeleton
@@ -121,27 +121,7 @@ public class Controller {
 			else if(i == 23 || i == 25)
 				fields.get(i).SetItem(new Food());
 		}
-		Food food = new Food();
-		food.SetPlayer(players.get(0));
-		players.get(0).AddItem(food);
-		
-		
-		players.get(0).AddItem(new Shovel());
-		
-		TentBuilder tb = new TentBuilder();
-		tb.SetPlayer(players.get(2));
-		players.get(2).AddItem(tb);
-		
-		Rope rope = new Rope();
-		rope.SetPlayer(players.get(0));
-		players.get(0).AddItem(rope);
-		
-		for(int i = 0; i <3; i++) {
-			Part p = new Part();
-			p.SetType(i+1);
-			p.SetPlayer(players.get(0));
-			players.get(0).AddItem(p);
-		}
+
 		
 	}
 	

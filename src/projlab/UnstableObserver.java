@@ -97,7 +97,6 @@ public class UnstableObserver extends ClickableComponent{
 
 	@Override
 	public void clicked() {
-		System.out.println("Unstable vagyok, klikkeltél rajtam");
 		infoFrame.setSelectedField(observed);
 	}
 }
