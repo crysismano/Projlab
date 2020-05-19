@@ -188,4 +188,9 @@ public class Field extends Observable{
 	public int GetSnow() {
 		return snow;
 	}
+	
+	public void RemoveAllCharacters() {
+		characters.clear();
+		deadly = false;
+	}
 }

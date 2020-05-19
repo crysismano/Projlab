@@ -37,4 +37,10 @@ public class Explorer extends Player{
 	public int GetLastExploredFieldCapacity() {
 		return lastExploredFieldCapacity;
 	}
+	
+	@Override
+	public void ResetStats() {
+		super.ResetStats();
+		SetTemp(4);
+	}
 }

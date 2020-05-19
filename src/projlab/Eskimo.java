@@ -26,4 +26,10 @@ public class Eskimo extends Player{
 			this.AddWork(-1);
 		}
 	}
+	
+	@Override
+	public void ResetStats() {
+		super.ResetStats();
+		SetTemp(5);
+	}
 }

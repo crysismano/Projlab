@@ -54,6 +54,12 @@ public class MapWindow extends JFrame {
 	
 	public void WinMessage() {
 		JOptionPane.showMessageDialog(this,"YOU WIN");
+		Controller.ResetGame();
+	}
+	
+	public void GameOverMessage() {
+		JOptionPane.showMessageDialog(this,"YOU LOSE");
+		Controller.ResetGame();
 	}
 	
 	public ClickableComponent GetClickableComponent(int idx) {

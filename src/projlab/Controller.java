@@ -164,14 +164,13 @@ public class Controller {
 	 * Not used in skeleton
 	 */
 	public static void GameOver() {
-		System.out.println("Game Over!");
+		mw.GameOverMessage();
 	}
 	/**
 	 * Ends the game if the players won
 	 * Not used in skeleton
 	 */
 	public static void Win() {
-		System.out.println("Winner!");
 		mw.WinMessage();
 	}
 	
@@ -271,7 +270,42 @@ public class Controller {
 		polarbear = p;
 	}
 	
-	public void ResetGame() {
+	public static void ResetGame() {
+		Random rng = new Random();
+		for(Field f: fields) {
+			f.RemoveAllCharacters();
+			f.AddSnow(-1000);
+			f.AddSnow(rng.nextInt(3)+1);
+		}
+		for(int i = 0; i < players.size(); i++) {
+			fields.get(0).AddCharacter(players.get(i));;
+		}
 		
+		fields.get(35).AddCharacter(polarbear);
+		int partType = 1;
+		for(int i = 0; i < 36; i++) {
+			if(i == 4 ||i == 26 || i == 35) {
+				Part part = new Part();
+				part.SetType(partType);
+				fields.get(i).SetItem(part);
+				partType++;
+			}
+			else if(i == 7)
+				fields.get(i).SetItem(new FragileShovel());
+			else if(i == 8)
+				fields.get(i).SetItem(new Suit());
+			else if(i == 0 || i == 9)
+				fields.get(i).SetItem(new TentBuilder());
+			else if(i == 12)
+				fields.get(i).SetItem(new Shovel());
+			else if(i == 15)
+				fields.get(i).SetItem(new Rope());
+			else if(i == 23 || i == 25)
+				fields.get(i).SetItem(new Food());
+		}
+		for(Player p: players) {
+			p.RemoveAllItems();
+			p.ResetStats();
+		}
 	}
 }

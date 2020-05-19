@@ -55,8 +55,8 @@ public abstract class Player extends Character{
 	public void UseItem(int item) {
 		if(work > 0) {
 			Item i = items.get(item);
-			i.Use();
 			this.AddWork(-1);
+			i.Use();
 		}
 	}
 	
@@ -227,6 +227,15 @@ public abstract class Player extends Character{
 	  */
 	 public void SetTemp(int t) {
 		 temperature = t;
+	 }
+	 
+	 public void RemoveAllItems() {
+		 items.clear();
+	 }
+	 
+	 public void ResetStats() {
+		 work = 4;
+		 drowning = 0;
 	 }
 	 
 }
