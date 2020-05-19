@@ -29,6 +29,10 @@ public class Controller {
 	 */
 	public static PolarBear polarbear = new PolarBear(); 
 	
+	public static MapWindow mw;
+	
+	public static InfoFrame infoFrame;
+	
 	public static HashMap<Player,String> names = new HashMap<Player, String>();
 	/**
 	 * It initializes the game
@@ -61,9 +65,9 @@ public class Controller {
 			}
 		}
 		
-		InfoFrame infoFrame = new InfoFrame();
+		infoFrame = new InfoFrame();
 		
-		MapWindow mw = new MapWindow(infoFrame);
+		mw = new MapWindow(infoFrame);
 		
 		for(int i = 0; i < 36; i++) {
 			fields.get(i).Register(mw.GetClickableComponent(i));
@@ -132,6 +136,13 @@ public class Controller {
 		rope.SetPlayer(players.get(0));
 		players.get(0).AddItem(rope);
 		
+		for(int i = 0; i <3; i++) {
+			Part p = new Part();
+			p.SetType(i+1);
+			p.SetPlayer(players.get(0));
+			players.get(0).AddItem(p);
+		}
+		
 	}
 	
 	/**
@@ -161,6 +172,7 @@ public class Controller {
 	 */
 	public static void Win() {
 		System.out.println("Winner!");
+		mw.WinMessage();
 	}
 	
 	/**
@@ -259,7 +271,7 @@ public class Controller {
 		polarbear = p;
 	}
 	
-	public void SetObserversForFields(ClickableComponent cc, int idx) {
+	public void ResetGame() {
 		
 	}
 }

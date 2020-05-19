@@ -52,6 +52,10 @@ public class MapWindow extends JFrame {
 		this.setResizable(false);
 	}
 	
+	public void WinMessage() {
+		JOptionPane.showMessageDialog(this,"YOU WIN");
+	}
+	
 	public ClickableComponent GetClickableComponent(int idx) {
 		return map.get(idx);
 	}
