@@ -53,7 +53,7 @@ public abstract class Player extends Character{
 	 * @param item The index of the item which the player wants to use
 	 */
 	public void UseItem(int item) {
-		if(work > 0) {
+		if(work > 0 && item < items.size() && item >= 0) {
 			Item i = items.get(item);
 			this.AddWork(-1);
 			i.Use();
