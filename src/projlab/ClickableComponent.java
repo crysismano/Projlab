@@ -23,7 +23,6 @@ public abstract class ClickableComponent extends JComponent implements Observer 
 	public abstract void clicked();
 
 	private class ComponentMouseListener extends MouseAdapter {
-		//	A kattintás megfelelő kezelését biztosító osztály.
 		boolean in_component = false;
 		ClickableComponent owner;
 

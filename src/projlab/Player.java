@@ -123,7 +123,7 @@ public abstract class Player extends Character{
 	 * The player picks up the item
 	 */
 	public void Pick() {
-		if(work > 0) {
+		if(work > 0 && this.GetField().GetSnow() == 0) {
 			Item i = GetField().GetItem();
 			if (i != null) {
 				GetField().RemoveItem();

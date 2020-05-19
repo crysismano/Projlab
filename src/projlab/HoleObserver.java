@@ -73,7 +73,6 @@ public class HoleObserver extends ClickableComponent {
 	@Override
 	public void Update(Observable o) {
 		observed = (Hole) o;
-		// TODO Auto-generated method stub
 		
 	}
 
